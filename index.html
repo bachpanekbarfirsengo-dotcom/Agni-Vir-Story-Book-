@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGNI VIR | Official Website & Comic Reader</title>
+  
+  <!-- Meta & Social Sharing -->
+  <meta name="description" content="Official Website of Agni Vir: The Chrono & Climate Defender. Read the full comic book, explore superpowers, and join Operation Prahaar!">
+  <meta property="og:title" content="AGNI VIR: The Chrono & Climate Defender">
+  <meta property="og:description" content="Explore the superpowers of Time Speed & Climate Control. Operation Prahaar - Say No To Drugs!">
+  <meta property="og:image" content="page_1.png">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --primary: #dc2626;
+      --primary-glow: rgba(220, 38, 38, 0.5);
+      --secondary: #2563eb;
+      --accent: #f59e0b;
+      --accent-glow: #facc15;
+      --bg-dark: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: #141e33;
+      --bg-card-hover: #1c2b4a;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #1e293b;
+      --border-glow: #f59e0b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ambient Glowing Orbs */
+    .ambient-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .orb-1 {
+      position: absolute;
+      top: -120px; left: 20%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(220, 38, 38, 0.22) 0%, transparent 70%);
+      filter: blur(80px);
+      animation: floatOrb 12s ease-in-out infinite alternate;
+    }
+    .orb-2 {
+      position: absolute;
+      top: 40%; right: -100px;
+      width: 550px; height: 550px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
+      filter: blur(80px);
+      animation: floatOrb 15s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes floatOrb {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(60px) scale(1.1); }
+    }
+
+    /* Top Sticky Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(7, 11, 20, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 2px solid var(--accent);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.7);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-badge {
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+    .brand-title {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      background: linear-gradient(135deg, #facc15 0%, #f97316 50%, #dc2626 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--accent-glow); }
+    .btn-nav-pdf {
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+      color: white;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 15px var(--primary-glow);
+      transition: all 0.2s;
+    }
+    .btn-nav-pdf:hover {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(220, 38, 38, 0.7);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      z-index: 10;
+      padding: 60px 20px 40px;
+      text-align: center;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+    .hero-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--accent);
+      color: var(--accent-glow);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero-title {
+      font-size: clamp(34px, 6vw, 56px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+      background: linear-gradient(180deg, #ffffff 10%, #facc15 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: clamp(16px, 3vw, 22px);
+      color: var(--accent-glow);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+    .hero-cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cta-primary {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #0f172a;
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+    }
+    .cta-primary:hover {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(245, 158, 11, 0.6);
+    }
+    .cta-secondary {
+      background: var(--bg-card);
+      color: #fff;
+      border: 1px solid var(--border-color);
+    }
+    .cta-secondary:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    /* Comic Book Reader Section */
+    .reader-section {
+      position: relative;
+      z-index: 10;
+      max-width: 920px;
+      margin: 30px auto 60px;
+      padding: 0 16px;
+    }
+    .reader-card {
+      background: #000;
+      border-radius: 18px;
+      border: 3px solid var(--accent);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9), 0 0 30px rgba(245, 158, 11, 0.2);
+      overflow: hidden;
+    }
+    .reader-top-bar {
+      background: #111827;
+      padding: 12px 20px;
+      border-bottom: 2px solid #1f2937;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .reader-title-badge {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent-glow);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .reader-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn-reader-action {
+      background: #1f2937;
+      color: #cbd5e1;
+      border: 1px solid #374151;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-reader-action:hover {
+      background: var(--accent);
+      color: #0f172a;
+      border-color: var(--accent);
+    }
+
+    .comic-display-area {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #05070c;
+      user-select: none;
+    }
+    .comic-img {
+      width: 100%;
+      height: auto;
+      max-height: 82vh;
+      object-fit: contain;
+      display: block;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .comic-img.fading {
+      opacity: 0.3;
+      transform: scale(0.99);
+    }
+
+    .stage-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      z-index: 20;
+    }
+    .stage-btn:hover {
+      background: var(--accent);
+      color: #0f172a;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+    .stage-btn.prev { left: 16px; }
+    .stage-btn.next { right: 16px; }
+
+    .reader-controls-bar {
+      background: #111827;
+      padding: 14px 20px;
+      border-top: 1px solid #1f2937;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .page-indicator-text {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--accent-glow);
+    }
+    .reader-btn-group {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-nav-control {
+      background: #1f2937;
+      color: white;
+      border: 1px solid #374151;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-nav-control:hover:not(:disabled) {
+      background: var(--accent);
+      color: #0f172a;
+      border-color: var(--accent);
+    }
+    .btn-nav-control:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .thumb-strip {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 14px 16px;
+      background: #090e1a;
+      border-top: 1px solid #1f2937;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) #090e1a;
+    }
+    .thumb-strip::-webkit-scrollbar { height: 6px; }
+    .thumb-strip::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+    .thumb-box {
+      flex-shrink: 0;
+      width: 65px;
+      height: 90px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid #334155;
+      cursor: pointer;
+      opacity: 0.55;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .thumb-box:hover { opacity: 0.9; transform: translateY(-2px); border-color: var(--accent); }
+    .thumb-box.active {
+      opacity: 1;
+      border-color: var(--accent);
+      box-shadow: 0 0 14px var(--accent);
+      transform: translateY(-3px) scale(1.05);
+    }
+    .thumb-box img { width: 100%; height: 100%; object-fit: cover; }
+    .thumb-tag {
+      position: absolute; bottom: 2px; right: 2px;
+      background: rgba(0,0,0,0.85);
+      color: #fff; font-size: 9px; font-weight: 800;
+      padding: 1px 4px; border-radius: 3px;
+    }
+
+    /* Section Headers */
+    .section-wrap {
+      position: relative;
+      z-index: 10;
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+    .sec-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .sec-badge {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .sec-title {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    /* Superpowers Grid */
+    .powers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 20px;
+    }
+    .power-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .power-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+    .power-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+    .power-icon {
+      font-size: 34px;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+    .power-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .power-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* Story Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 20px;
+      align-items: center;
+      transition: all 0.25s;
+    }
+    .timeline-item:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+    .timeline-num {
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 900;
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+    .timeline-content h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--accent-glow);
+      margin-bottom: 4px;
+    }
+    .timeline-content p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Operation Prahaar Pledge Box */
+    .pledge-box {
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(37, 99, 235, 0.15) 100%);
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      padding: 40px 24px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .pledge-box h3 {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--accent-glow);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .pledge-box p {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 620px;
+      margin: 0 auto 24px;
+    }
+    .pledge-form {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .pledge-input {
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: #0f172a;
+      color: #fff;
+      font-size: 15px;
+      min-width: 260px;
+      outline: none;
+    }
+    .pledge-input:focus { border-color: var(--accent); }
+    .btn-pledge {
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-pledge:hover {
+      background: #ef4444;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--primary-glow);
+    }
+    #badgeResult {
+      margin-top: 18px;
+      padding: 16px;
+      background: rgba(5, 150, 105, 0.2);
+      border: 1px solid #10b981;
+      border-radius: 10px;
+      color: #34d399;
+      font-weight: 700;
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #050811;
+      border-top: 1px solid var(--border-color);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .footer-badges {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .pill {
+      font-size: 11px; font-weight: 700;
+      padding: 5px 14px; border-radius: 9999px;
+      text-transform: uppercase;
+    }
+    .pill-red { background: rgba(220, 38, 38, 0.2); color: #f87171; border: 1px solid rgba(220, 38, 38, 0.4); }
+    .pill-blue { background: rgba(37, 99, 235, 0.2); color: #60a5fa; border: 1px solid rgba(37, 99, 235, 0.4); }
+    .pill-green { background: rgba(5, 150, 105, 0.2); color: #34d399; border: 1px solid rgba(5, 150, 105, 0.4); }
+
+    /* Fullscreen Mode */
+    body.is-fullscreen header,
+    body.is-fullscreen .hero-section,
+    body.is-fullscreen .section-wrap,
+    body.is-fullscreen footer {
+      display: none !important;
+    }
+    body.is-fullscreen .reader-section {
+      max-width: 100vw;
+      margin: 0;
+      padding: 0;
+    }
+    body.is-fullscreen .reader-card {
+      border-radius: 0;
+      border: none;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    body.is-fullscreen .comic-display-area {
+      flex: 1;
+      min-height: auto;
+    }
+    body.is-fullscreen .comic-img {
+      max-height: calc(100vh - 160px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-bg">
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="brand">
+      <span class="brand-badge">ISSUE #01</span>
+      <span class="brand-title">AGNI VIR</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#reader" class="nav-link">📖 Read Comic</a>
+      <a href="#powers" class="nav-link">⚡ Superpowers</a>
+      <a href="#story" class="nav-link">📜 Origin Story</a>
+      <a href="#pledge" class="nav-link">🛡️ Join Team</a>
+      <a href="AGNI_VIR_COMIC_BOOK.pdf" download class="btn-nav-pdf">⬇ Download PDF</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-pill-badge">★ Official Superhero Comic & Youth Movement ★</div>
+    <h1 class="hero-title">AGNI VIR: CHRONO & CLIMATE DEFENDER</h1>
+    <p class="hero-subtitle">Master of Time Velocity & Atmospheric Weather Control System</p>
+    <p class="hero-desc">
+      When brave Agniveer cadet <b>Samar</b> returns home, he vows to rescue young minds from addiction. 
+      Gifted with an ancient celestial wristwatch that manipulates the speed of time and commands the weather, 
+      he executes an astonishing <b>LIVE DEMONSTRATION</b> in front of the neighborhood kids to birth the legendary <b>AGNI VIR TEAM</b>!
+    </p>
+    <div class="hero-cta-group">
+      <a href="#reader" class="cta-btn cta-primary">📖 Read Comic Book Online</a>
+      <a href="AGNI_VIR_COMIC_BOOK.pdf" download class="cta-btn cta-secondary">📄 Get Official PDF</a>
+      <a href="#pledge" class="cta-btn cta-secondary">🛡️ Take Anti-Drug Pledge</a>
+    </div>
+  </section>
+
+  <!-- Comic Book Reader Section -->
+  <section class="reader-section" id="reader">
+    <div class="reader-card">
+      <div class="reader-top-bar">
+        <div class="reader-title-badge">
+          <span>⚡</span>
+          <span>AGNI VIR: ISSUE #01 — SPECIAL COLLECTOR'S EDITION</span>
+        </div>
+        <div class="reader-actions">
+          <button class="btn-reader-action" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+          <a href="AGNI_VIR_COMIC_BOOK.pdf" download class="btn-reader-action" style="text-decoration:none;">⬇ PDF</a>
+        </div>
+      </div>
+
+      <!-- Stage with Image & Arrows -->
+      <div class="comic-display-area" id="comicStage">
+        <button class="stage-btn prev" onclick="prevPage()" title="Previous Page">◀</button>
+        <img id="comicViewer" src="page_1.png" alt="Agni Vir Comic Page 1" class="comic-img">
+        <button class="stage-btn next" onclick="nextPage()" title="Next Page">▶</button>
+      </div>
+
+      <!-- Reader Controls -->
+      <div class="reader-controls-bar">
+        <div class="page-indicator-text" id="pageIndicator">Page 1 of 9</div>
+        <div class="reader-btn-group">
+          <button id="btnFirst" class="btn-nav-control" onclick="goToPage(1)">|◀ First</button>
+          <button id="btnPrev" class="btn-nav-control" onclick="prevPage()">◀ Previous</button>
+          <button id="btnNext" class="btn-nav-control" onclick="nextPage()">Next ▶</button>
+          <button id="btnLast" class="btn-nav-control" onclick="goToPage(9)">Last ▶|</button>
+        </div>
+      </div>
+
+      <!-- Thumbnail Strip -->
+      <div class="thumb-strip" id="thumbStrip"></div>
+    </div>
+  </section>
+
+  <!-- Superpowers Section -->
+  <section class="section-wrap" id="powers">
+    <div class="sec-header">
+      <span class="sec-badge">Superhuman Capabilities</span>
+      <h2 class="sec-title">⚡ The Chrono-Weather Arsenal</h2>
+    </div>
+
+    <div class="powers-grid">
+      <div class="power-card">
+        <span class="power-icon">⏱️</span>
+        <h3 class="power-title">Chrono-Velocity Accelerator</h3>
+        <p class="power-desc">
+          Controls the flow and speed of time itself! Samar can induce <b>Slow-Motion</b> down to 1/1000th second (causing falling water drops to float in mid-air like diamonds), execute <b>Time-Freeze</b>, or accelerate temporal reactions.
+        </p>
+      </div>
+
+      <div class="power-card">
+        <span class="power-icon">⛅</span>
+        <h3 class="power-title">Atmospheric Weather Override</h3>
+        <p class="power-desc">
+          Direct command over local climate systems. Within seconds, Samar can disperse heavy thunderstorms, channel cooling Himalayan pine breezes, illuminate gloomy skies with golden solar rays, and conjure 7-color <b>Double Rainbows</b>!
+        </p>
+      </div>
+
+      <div class="power-card">
+        <span class="power-icon">🎪</span>
+        <h3 class="power-title">The Live Demonstration In The Tent</h3>
+        <p class="power-desc">
+          Samar did not just talk about miracles—he showed them <b>LIVE</b> inside the NGO camp tent! The neighborhood children gasped in awe as floating water droplets and sudden sunshine turned impossible fiction into living reality!
+        </p>
+      </div>
+
+      <div class="power-card">
+        <span class="power-icon">🛡️</span>
+        <h3 class="power-title">Operation Prahaar: The Mind Power</h3>
+        <p class="power-desc">
+          The ultimate truth Samar revealed: <i>"The watch slowed time for a minute, but a lost second never returns!"</i> The true power lies in rejecting addiction, cherishing one's time, and standing tall as the <b>AGNI VIR TEAM</b>!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Origin Story Section -->
+  <section class="section-wrap" id="story">
+    <div class="sec-header">
+      <span class="sec-badge">Comic Narrative Acts</span>
+      <h2 class="sec-title">📜 The 8 Acts of Agni Vir</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-num">1</div>
+        <div class="timeline-content">
+          <h4>Act I: The Cadet's Resolve</h4>
+          <p>Agniveer cadet Samar returns on leave and launches Operation Prahaar with Creative Print Media to save youth from addiction.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-num">2</div>
+        <div class="timeline-content">
+          <h4>Act II: The NGO Basecamp & The Vow</h4>
+          <p>Setting up the pavilion tent with Bachpan Ek Bar Phirse NGO, Samar vows: "Tomorrow morning, I will show you a LIVE demonstration of superpowers!"</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-num">3</div>
+        <div class="timeline-content">
+          <h4>Act III: Unearthing The Chrono-Relic</h4>
+          <p>On the old mountain ridge, Samar unearths the mysterious steel timepiece pulsing with a living heartbeat.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-num">4</div>
+        <div class="timeline-content">
+          <h4>Act IV: Awakening The Watch</h4>
+          <p>Pressing the crown button ignites celestial azure radiance and fiery phoenix wings, unlocking the twin powers of Time and Weather.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-num">5</div>
+        <div class="timeline-content">
+          <h4>Act V: The Climax Live Demo In The Tent</h4>
+          <p>In front of crowded children, Samar halts airborne water droplets in slow-motion and turns dark storm clouds into a radiant rainbow!</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-num">6</div>
+        <div class="timeline-content">
+          <h4>Act VI: Agni Vir Team Assemble</h4>
+          <p>Samar explains the true value of time and self-discipline, inspiring the children to unite as the official Agni Vir Team.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-num">7</div>
+        <div class="timeline-content">
+          <h4>Act VII: New Dreams Unlocked</h4>
+          <p>Fear vanishes as the young heroes embrace their future aspirations—aspiring to become soldiers, surgeons, and police officers.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-num">8</div>
+        <div class="timeline-content">
+          <h4>Act VIII: The Ultimate Pledge</h4>
+          <p>Under the banner of truth, the children take the solemn oath: "SAY NO TO DRUGS! CHOOSE YOUR DREAMS!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Pledge Section -->
+  <section class="section-wrap" id="pledge">
+    <div class="pledge-box">
+      <h3>🛡️ Join The Agni Vir Team</h3>
+      <p>Take the anti-drug pledge today! Enter your name to receive your official virtual Agni Vir Team member badge.</p>
+      
+      <form class="pledge-form" onsubmit="handlePledge(event)">
+        <input type="text" id="pledgeName" class="pledge-input" placeholder="Apna Naam Likhein (Enter Your Name)" required>
+        <button type="submit" class="btn-pledge">Take The Pledge ★</button>
+      </form>
+
+      <div id="badgeResult"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-badges">
+      <span class="pill pill-red">Operation Prahaar</span>
+      <span class="pill pill-blue">Creative Print Media</span>
+      <span class="pill pill-green">Bachpan Ek Bar Phirse NGO</span>
+    </div>
+    <p style="color:var(--text-muted); font-size:13.5px;">
+      <b>AGNI VIR: ISSUE #01</b> • Built for live hosting on GitHub Pages.<br/>
+      <span style="color:var(--accent-glow); font-weight:bold;">"SAY NO TO DRUGS — CHOOSE YOUR DREAMS!"</span>
+    </p>
+  </footer>
+
+  <!-- Reader & Interaction Script -->
+  <script>
+    let currentPage = 1;
+    const totalPages = 9;
+
+    // Web Audio Comic Page Turn Sound Synthesizer
+    function playPageTurnSFX() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(190, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(340, audioCtx.currentTime + 0.08);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.09);
+      } catch (e) {}
+    }
+
+    // Build Thumbnails
+    function initThumbnails() {
+      const container = document.getElementById('thumbStrip');
+      container.innerHTML = '';
+      for (let i = 1; i <= totalPages; i++) {
+        const div = document.createElement('div');
+        div.className = `thumb-box ${i === currentPage ? 'active' : ''}`;
+        div.onclick = () => goToPage(i);
+        div.innerHTML = `
+          <img src="page_${i}.png" alt="Page ${i}" loading="lazy">
+          <span class="thumb-tag">${i}</span>
+        `;
+        container.appendChild(div);
+      }
+    }
+
+    // Update Display
+    function renderPage() {
+      const img = document.getElementById('comicViewer');
+      img.classList.add('fading');
+      
+      setTimeout(() => {
+        img.src = `page_${currentPage}.png`;
+        img.alt = `Comic Book Page ${currentPage}`;
+        img.classList.remove('fading');
+      }, 120);
+
+      document.getElementById('pageIndicator').innerText = `Page ${currentPage} of ${totalPages}`;
+
+      document.getElementById('btnPrev').disabled = (currentPage === 1);
+      document.getElementById('btnFirst').disabled = (currentPage === 1);
+      document.getElementById('btnNext').disabled = (currentPage === totalPages);
+      document.getElementById('btnLast').disabled = (currentPage === totalPages);
+
+      const thumbs = document.querySelectorAll('.thumb-box');
+      thumbs.forEach((th, idx) => {
+        if (idx + 1 === currentPage) {
+          th.classList.add('active');
+          th.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        } else {
+          th.classList.remove('active');
+        }
+      });
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        playPageTurnSFX();
+        renderPage();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        playPageTurnSFX();
+        renderPage();
+      }
+    }
+
+    function goToPage(n) {
+      if (n >= 1 && n <= totalPages && n !== currentPage) {
+        currentPage = n;
+        playPageTurnSFX();
+        renderPage();
+      }
+    }
+
+    function toggleFullscreen() {
+      document.body.classList.toggle('is-fullscreen');
+      if (document.body.classList.contains('is-fullscreen')) {
+        if (document.documentElement.requestFullscreen) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    }
+
+    // Keyboard Shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        e.preventDefault(); nextPage();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault(); prevPage();
+      } else if (e.key === 'Home') {
+        goToPage(1);
+      } else if (e.key === 'End') {
+        goToPage(totalPages);
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      }
+    });
+
+    // Touch Swipe for Mobile
+    let startX = 0;
+    const stage = document.getElementById('comicStage');
+    stage.addEventListener('touchstart', (e) => { startX = e.changedTouches[0].screenX; }, { passive: true });
+    stage.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].screenX;
+      if (endX < startX - 45) nextPage();
+      else if (endX > startX + 45) prevPage();
+    }, { passive: true });
+
+    // Handle Pledge
+    function handlePledge(e) {
+      e.preventDefault();
+      const name = document.getElementById('pledgeName').value.trim();
+      if (!name) return;
+      const res = document.getElementById('badgeResult');
+      res.style.display = 'block';
+      res.innerHTML = `
+        🎖️ <b>CONGRATULATIONS, ${name.toUpperCase()}!</b><br/>
+        Aap safaltapoorvak <b>AGNI VIR TEAM</b> ke official member ban chuke hain!<br/>
+        <i>"Main shapath leta hoon ki main nashe se door rahunga aur apne sapno ko poora karunga!"</i>
+      `;
+      document.getElementById('pledgeName').value = '';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initThumbnails();
+      renderPage();
+    });
+  </script>
+</body>
+</html>
